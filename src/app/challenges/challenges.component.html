@@ -1,0 +1,3 @@
+<div *ngFor="let challenge of challenges | async" class="challenge">
+  <a [routerLink]="['/challenge', challenge.id]">{{challenge.title}}</a>
+</div>
