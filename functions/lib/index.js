@@ -22,12 +22,12 @@ exports.newSubmission = functions.firestore.document('challenges/{challenge}/sub
         return null;
     }
     else {
-        let runResponse = true; //  
+        let runResponse = true;
         const denyResponse = function () {
             return db.doc(`challenges/${context.params.challenge}/submissions/${context.params.submission}`).update({ 'result': false });
         };
         return db.doc(`challenges/${context.params.challenge}/submissions/${context.params.submission}`).update({ 'status': 'processing', 'id': context.params.submission, 'result': true }).then(() => db.collection(`challenges/${context.params.challenge}/hiddenCases`).where('visible', '==', true).get().then((snaps) => {
-            return snaps.forEach(snap => {
+            snaps.forEach(snap => {
                 const testData = snap.data();
                 const options = {
                     method: 'POST',
@@ -53,6 +53,7 @@ exports.newSubmission = functions.firestore.document('challenges/{challenge}/sub
                     else {
                         if (body.compile_status !== "OK") {
                             runResponse = false;
+                            console.log(body);
                             return db.collection(`challenges/${context.params.challenge}/submissions/${context.params.submission}/results`).add({
                                 'caseId': testData.caseId,
                                 'pass': false,
@@ -62,6 +63,7 @@ exports.newSubmission = functions.firestore.document('challenges/{challenge}/sub
                         else {
                             if (body.run_status.status === "AC") {
                                 //correct run 
+                                console.log(body);
                                 if (body.run_status.output === testData.result) {
                                     return db.collection(`challenges/${context.params.challenge}/submissions/${context.params.submission}/results`).add({
                                         'caseId': testData.caseId,
@@ -71,6 +73,7 @@ exports.newSubmission = functions.firestore.document('challenges/{challenge}/sub
                                 }
                                 else {
                                     runResponse = false;
+                                    console.log(body);
                                     return db.collection(`challenges/${context.params.challenge}/submissions/${context.params.submission}/results`).add({
                                         'caseId': testData.caseId,
                                         'pass': false,
@@ -79,6 +82,8 @@ exports.newSubmission = functions.firestore.document('challenges/{challenge}/sub
                                 }
                             }
                             else {
+                                console.log(body);
+                                runResponse = false;
                                 runResponse = false;
                                 return db.collection(`challenges/${context.params.challenge}/submissions/${context.params.submission}/results`).add({
                                     'caseId': testData.caseId,
