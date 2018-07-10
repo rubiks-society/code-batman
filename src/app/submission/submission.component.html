@@ -1,0 +1,28 @@
+<div *ngIf="submission" class="card">
+  <div class="card-body">
+    <span *ngIf="submission.status == 'submitted'">Submitted</span>
+    <div *ngIf="submission.status != 'submitted'">
+      <!-- We are using ngIf because the result might be still processing -->
+      <ngb-alert *ngIf="submission.result == true && submission.status=='completed'" [type]="'success'" [dismissible]="false">The code was right!</ngb-alert>
+      <ngb-alert *ngIf="submission.result == false" [type]="'danger'" [dismissible]="false">The code was wrong!</ngb-alert>
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Result</th>
+            <th scope="col">Pass Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let caseResult of caseRuns">
+            <th scope="row">{{caseResult.caseId}}</th>
+            <td>{{caseResult.result}}</td>
+            <!-- TODO Add icons, and what not -->
+            <td>{{caseResult.pass}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

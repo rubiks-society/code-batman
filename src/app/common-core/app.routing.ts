@@ -4,6 +4,7 @@ import { HomeComponent } from '../home/home.component';
 import { ChallengesComponent } from '../challenges/challenges.component';
 import { ChallengeComponent } from '../challenge/challenge.component';
 import { environment } from '../../environments/environment';
+import { SubmissionComponent } from '../submission/submission.component';
 
 
 
@@ -17,6 +18,10 @@ const routes: Routes = [
     path: 'challenges',
     pathMatch: 'full',
     component: ChallengesComponent
+  },
+  {
+    path: 'submission/:cid/:id',
+    component: SubmissionComponent
   },
   {
     path: 'challenge/:id',

@@ -8,6 +8,7 @@ import { AppRoutingModule } from './common-core/app.routing';
 import { ChallengesComponent } from './challenges/challenges.component';
 import { ChallengeComponent } from './challenge/challenge.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SubmissionComponent } from './submission/submission.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     ChallengesComponent,
     ChallengeComponent,
+    SubmissionComponent,
   ],
   imports: [
     BrowserModule,

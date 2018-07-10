@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Challenge } from '../common-core/data.model';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { FirestoreService } from '../common-core/firestore.service';
 import { Observable } from 'rxjs';
@@ -25,7 +25,7 @@ export class ChallengeComponent implements OnInit {
   private challenge$: Observable<Challenge>;
   public challenge: Challenge;
 
-  constructor(private route: ActivatedRoute, private db: FirestoreService, public auth: AuthService) { }
+  constructor(private route: ActivatedRoute,private router: Router, private db: FirestoreService, public auth: AuthService) { }
 
   ngOnInit() {
     this.route.paramMap.pipe(
@@ -43,7 +43,7 @@ export class ChallengeComponent implements OnInit {
         this.db.addSubmission(this.challenge.id,this.challengeForm.value.language,this.challengeForm.value.code).then(ref => {
           console.log(`New submission with id ${ref}`);
           this.runButtonState = false;
-          alert("Now you would redirected to submission view, but for the moment check it in firebase console");
+          this.router.navigate(["/submission",this.challenge.id,ref.id]);
         });
       }
       else {

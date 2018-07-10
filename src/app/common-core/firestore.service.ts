@@ -34,6 +34,14 @@ export class FirestoreService {
     return this.afs.doc<Challenge>(`${this.challengesPath}/${id}`).valueChanges();
   }
 
+  getSubmission(cid:string,id: string) {
+    return this.afs.doc<Submission>(`${this.challengesPath}/${cid}/submissions/${id}`).valueChanges();
+  }
+
+  getSubmissionResults(cid: string, id:string) {
+    return this.afs.collection<Submission>(`${this.challengesPath}/${cid}/submissions/${id}/results`).valueChanges();
+  }
+
   addSubmission(challengeId:string, language: string, code: string) {
     const submission = {
       createdBy: this.auth.user.uid,

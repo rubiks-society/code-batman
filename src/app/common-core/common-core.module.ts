@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { environment } from '../../environments/environment.prod';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -12,6 +12,7 @@ import { AuthService } from './auth.service';
   imports: [
     CommonModule,
     NgbModule.forRoot(),
+    NgbAlertModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule
