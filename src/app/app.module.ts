@@ -10,6 +10,8 @@ import { ChallengeComponent } from './challenge/challenge.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SubmissionComponent } from './submission/submission.component';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { SubmissionComponent } from './submission/submission.component';
     BrowserModule,
     CommonCoreModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
