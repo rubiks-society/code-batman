@@ -51,13 +51,13 @@ export const newSubmission = functions.firestore.document('challenges/{challenge
                 return rp(options).then((body) => {
                     if(body.message !== "OK") {
                         // An error occured
-                        console.log(body);
+                        console.log("<newSubmission-p1>",body);
                         return null;
                     }
                     else{
                         if(body.compile_status !== "OK") {
                             runResponse = false;
-                            console.log(body);
+                            console.log("<newSubmission-p2>",body);
                             return db.collection(`challenges/${context.params.challenge}/submissions/${context.params.submission}/results`).add({
                                 'caseId': testData.caseId,
                                 'pass': false,
@@ -67,7 +67,7 @@ export const newSubmission = functions.firestore.document('challenges/{challenge
                         else {
                             if(body.run_status.status === "AC"){
                                 //correct run 
-                                console.log(body);
+                                console.log("<newSubmission-p3>",body);
                                 if(body.run_status.output === testData.result){
                                     return db.collection(`challenges/${context.params.challenge}/submissions/${context.params.submission}/results`).add({
                                         'caseId': testData.caseId,
@@ -77,7 +77,7 @@ export const newSubmission = functions.firestore.document('challenges/{challenge
                                 }
                                 else{
                                     runResponse = false;
-                                    console.log(body);
+                                    console.log("<newSubmission-p4>",body);
                                     return db.collection(`challenges/${context.params.challenge}/submissions/${context.params.submission}/results`).add({
                                         'caseId': testData.caseId,
                                         'pass': false,
@@ -86,7 +86,7 @@ export const newSubmission = functions.firestore.document('challenges/{challenge
                                 }
                             }
                             else{
-                                console.log(body);
+                                console.log("<newSubmission-p5>",body);
                                 runResponse = false;
                                 runResponse = false;
                                 return db.collection(`challenges/${context.params.challenge}/submissions/${context.params.submission}/results`).add({
@@ -98,7 +98,7 @@ export const newSubmission = functions.firestore.document('challenges/{challenge
                         }
                     }
                 }).catch((err) => {
-                    console.error(err);
+                    console.error("<newSubmission-E1>",err);
                     return null;
                 })
             });
