@@ -13,6 +13,7 @@ import { SubmissionComponent } from './submission/submission.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { PracticeComponent } from './practice/practice.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { environment } from '../environments/environment';
     ChallengesComponent,
     ChallengeComponent,
     SubmissionComponent,
+    PracticeComponent,
   ],
   imports: [
     BrowserModule,

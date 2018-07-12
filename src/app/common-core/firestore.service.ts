@@ -27,7 +27,11 @@ export class FirestoreService {
   }
   
   getActiveChallenges() {
-    return this.afs.collection<Challenge>(`${this.challengesPath}`,ref => ref.where('isPartOfContest','==',false).orderBy('timestamp','desc')).valueChanges();
+    return this.afs.collection<Challenge>(`${this.challengesPath}`,ref => ref.where('isPartOfContest','==',false).where('isPractice','==',false).orderBy('timestamp','desc')).valueChanges();
+  }
+
+  getPracticeChallenges() {
+    return this.afs.collection<Challenge>(`${this.challengesPath}`,ref => ref.where('isPartOfContest','==',false).where('isPractice','==',true).orderBy('timestamp','desc')).valueChanges();
   }
 
   getChallenge(id: string) {
