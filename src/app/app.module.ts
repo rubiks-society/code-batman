@@ -11,6 +11,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SubmissionComponent } from './submission/submission.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CommonCoreModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
