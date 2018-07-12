@@ -1,0 +1,12 @@
+@import "../common-core/shared";
+.card {
+    background-color: opacify($color: $primary-light, $amount: 0.5);
+}
+
+h2 {
+    font-family: $main-links-font;
+}
+
+.card-body {
+    background-color: opacify($secondary-dark, 0.5);
+}
