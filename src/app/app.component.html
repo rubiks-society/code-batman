@@ -2,18 +2,48 @@
   <div class="container-fluid mx-auto">
     <h1 class="text-center text-uppercase">Batman Code</h1>
   </div>
-  <ul class="nav nav-pills justify-center-center text-center text-uppercase">
+  <ul class="nav justify-content-center mt-4">
     <li class="nav-item">
-      <a class="nav-link" routerLink="/" routerLinkActive="active"><fa-icon [icon]="faCoffee"></fa-icon>Home</a>
+      <a class="nav-link text-center" routerLink="/" routerLinkActive="active">
+        <fa-icon [icon]="faHome"></fa-icon><br>
+        <p class="text-mute">Home</p>
+      </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/challenges" routerLinkActive="active">Challenges</a>
+      <a class="nav-link text-center" routerLink="/challenges" routerLinkActive="active">
+        <fa-icon [icon]="faChallanges"></fa-icon><br>
+        <p class="text-mute">Challenges</p>
+      </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
+      <a class="nav-link text-center" routerLink="/practice" routerLinkActive="active">
+        <fa-icon [icon]="faPractice"></fa-icon><br>
+        <p class="text-mute">Practice</p>
+      </a>
     </li>
     <li class="nav-item">
-      <a *ngIf="!auth.authenticated" class="nav-link" (click)="auth.signInWithGoogle()" >Login</a>
+      <a class="nav-link text-center" routerLink="/competitions" routerLinkActive="active">
+        <fa-icon [icon]="faCompetition"></fa-icon><br>
+        <p class="text-mute">Compeitions</p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-center" routerLink="/about" routerLinkActive="active">
+        <fa-icon [icon]="faInfo"></fa-icon><br>
+        <p class="text-mute">About</p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a *ngIf="!auth.authenticated" class="nav-link text-center" (click)="auth.signInWithGoogle()" >
+        <fa-icon [icon]="faLogin"></fa-icon><br>
+        <p class="text-mute">Login</p>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a *ngIf="auth.authenticated" class="nav-link text-center" (click)="auth.signOut()" >
+        <fa-icon [icon]="faLogout"></fa-icon><br>
+        <p class="text-mute">LogOut</p>
+      </a>
     </li>
   </ul>
   <div class="container-fluid mx-auto pt-2">
