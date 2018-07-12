@@ -1,0 +1,35 @@
+<h1>
+    Smart Editor
+</h1>
+<div>
+    <div>
+        <ul>
+            <li>
+                <a>
+                    <select required [(ngModel)]="language" id="language" (input)="onLanguageChange($event.target.value)">
+                     <option class="placeholder" selected="selected" disabled value="">Select language</option>
+                    <option value="c">c</option>
+                    <option value="java">java</option>
+                    <option value="python">python</option>
+                    <option value="html">html</option>
+                  </select>
+                </a>
+            </li>
+            <li><a>Download</a></li>
+            <li><a>Share on Drive</a></li>
+            <li>
+                <a>
+                    <select required [(ngModel)]="category" id="category" (input)="onThemeChange($event.target.value)">
+                       <option value="" disabled selected>Select Theme</option>
+                      <option value="one"  selected>one</option>
+                      <option value="two"  selected>two</option>
+                    </select>
+                </a>
+            </li>
+            <li><a>Styling</a></li>
+        </ul>
+    </div>
+    <ace-editor #firstEditor [text]="content1" (textChanged)="onRuleChange($event)" [autoUpdateContent]="true" style="min-height: 420px; width:100%; overflow: auto;" mode="html"></ace-editor>
+</div>
+
+<p></p>

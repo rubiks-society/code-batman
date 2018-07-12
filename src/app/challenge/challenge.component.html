@@ -1,11 +1,11 @@
 <div *ngIf="challenge">
-  Challenge {{challenge.title}} Statement:
-  <div [innerHTML]='challenge.statement'></div>
+    Challenge {{challenge.title}} Statement:
+    <div [innerHTML]='challenge.statement'></div>
 
-  <p *ngIf="!auth.authenticated">Login to submit solution</p>
-  <form *ngIf="auth.authenticated" [formGroup]="challengeForm">
-    <div class="form-group">
-      <select class="custom-select form-control col-2 offset-10 form-control-sm" id="choosenLanguage" formControlName="language">
+    <p *ngIf="!auth.authenticated">Login to submit solution</p>
+    <form *ngIf="auth.authenticated" [formGroup]="challengeForm">
+        <div class="form-group">
+            <select class="custom-select form-control col-2 offset-10 form-control-sm" id="choosenLanguage" formControlName="language">
         <option value="none" selected>Language</option>
         <option value="C" selected>C</option>
         <option value="CPP" selected>C++</option>
@@ -20,13 +20,13 @@
         <option value="PYTHON" selected>Python</option>
         <option value="RUBY" selected>Ruby</option>
       </select>
-    </div>
-    <div class="form-group">
-      <textarea class="form-control" id="codeTextarea" rows="10" formControlName="code"></textarea>
-    </div>
-    <div class="form-group text-right">
-      <!-- <button class="btn btn-primary mr-2">Test Run</button> -->
-      <button class="btn btn-primary" [disabled]='runButtonState' (click)="run('final-run')">Run</button>
-    </div>
-  </form>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" id="codeTextarea" rows="10" formControlName="code"></textarea>
+        </div>
+        <div class="form-group text-right">
+            <!-- <button class="btn btn-primary mr-2">Test Run</button> -->
+            <button class="btn btn-primary" [disabled]='runButtonState' (click)="run('final-run')">Run</button>
+        </div>
+    </form>
 </div>

@@ -5,7 +5,7 @@ import { ChallengesComponent } from '../challenges/challenges.component';
 import { ChallengeComponent } from '../challenge/challenge.component';
 import { environment } from '../../environments/environment';
 import { SubmissionComponent } from '../submission/submission.component';
-
+import { SmarteditorComponent } from '../smarteditor/smarteditor.component';
 
 
 const routes: Routes = [
@@ -26,7 +26,11 @@ const routes: Routes = [
   {
     path: 'challenge/:id',
     component: ChallengeComponent
-  }
+  },
+  {
+    path: 'about',
+    component: SmarteditorComponent
+  },
 ];
 
 @NgModule({

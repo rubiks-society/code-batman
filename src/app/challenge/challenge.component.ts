@@ -13,6 +13,12 @@ import { AuthService } from '../common-core/auth.service';
   styleUrls: ['./challenge.component.scss']
 })
 export class ChallengeComponent implements OnInit {
+   text:string = "";
+    options:any = {maxLines: 1000, printMargin: false};
+    
+    onChange(code) {
+        console.log("new code", code);
+    }
 
   // check from here https://www.hackerearth.com/docs/wiki/developers/v3/
   public supportedLanguages = ["C","CPP","CPP11","CLOJURE","CSHARP","JAVA","JAVASCRIPT","HASKELL","PERL","PHP","PYTHON","RUBY"]; //Also change in html when changing this #notAutomatic
