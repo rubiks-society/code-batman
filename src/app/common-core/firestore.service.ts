@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { User, Challenge, Submission, random_id } from './data.model';
+import { User, Challenge, Submission, random_id, SubmissionResult } from './data.model';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
@@ -38,12 +38,12 @@ export class FirestoreService {
     return this.afs.doc<Challenge>(`${this.challengesPath}/${id}`).valueChanges();
   }
 
-  getSubmission(cid:string,id: string) {
-    return this.afs.doc<Submission>(`${this.challengesPath}/${cid}/submissions/${id}`).valueChanges();
+  getSubmission(cid:string,id: string,uid: string = this.auth.id) {
+    return this.afs.doc<Submission>(`${this.challengesPath}/${cid}/board/${uid}/submissions/${id}`).valueChanges();
   }
 
-  getSubmissionResults(cid: string, id:string) {
-    return this.afs.collection<Submission>(`${this.challengesPath}/${cid}/submissions/${id}/results`).valueChanges();
+  getSubmissionResults(cid: string, id:string,uid: string = this.auth.id) {
+    return this.afs.collection<SubmissionResult>(`${this.challengesPath}/${cid}/board/${uid}/submissions/${id}/results`).valueChanges();
   }
 
   addSubmission(challengeId:string, language: string, code: string) {
@@ -55,6 +55,6 @@ export class FirestoreService {
       status: "submitted",
       challengeId: challengeId
     }
-    return this.afs.collection<Submission>(`${this.challengesPath}/${challengeId}/submissions`).add(submission);
+    return this.afs.collection<Submission>(`${this.challengesPath}/${challengeId}/board/${this.auth.id}/submissions`).add(submission);
   }
 }

@@ -13,7 +13,7 @@ import { AuthService } from './auth.service';
     CommonModule,
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule.enablePersistence(),
+    AngularFirestoreModule,
     AngularFireAuthModule
   ],
   exports: [

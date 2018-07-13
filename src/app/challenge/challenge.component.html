@@ -40,4 +40,32 @@
             <button class="btn btn-primary" [disabled]='runButtonState' (click)="run('final-run')">Run</button>
         </div>
     </form>
+    <div *ngIf="latestSubmission" class="card">
+        <div class="card-body">
+          <span *ngIf="latestSubmission.status == 'submitted'">Submitted</span>
+          <div *ngIf="latestSubmission.status != 'submitted'">
+            <!-- We are using ngIf because the result might be still processing -->
+            <ngb-alert *ngIf="latestSubmission.result == true && latestSubmission.status=='completed'" [type]="'success'" [dismissible]="false">The code was right!</ngb-alert>
+            <ngb-alert *ngIf="latestSubmission.result == false" [type]="'danger'" [dismissible]="false">The code was wrong!</ngb-alert>
+      
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Result</th>
+                  <th scope="col">Pass Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let caseResult of latestSubmissionResults">
+                  <th scope="row">{{caseResult.caseId}}</th>
+                  <td>{{caseResult.result}}</td>
+                  <!-- TODO Add icons, and what not -->
+                  <td>{{caseResult.pass}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
 </div>

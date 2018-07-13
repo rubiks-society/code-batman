@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Challenge } from '../common-core/data.model';
+import { Challenge, Submission, SubmissionResult } from '../common-core/data.model';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { FirestoreService } from '../common-core/firestore.service';
@@ -13,12 +13,12 @@ import { AuthService } from '../common-core/auth.service';
   styleUrls: ['./challenge.component.scss']
 })
 export class ChallengeComponent implements OnInit {
-   text:string = "";
-    options:any = {maxLines: 1000, printMargin: false};
+  text:string = "";
+  options:any = {maxLines: 1000, printMargin: false};
     
-    onChange(code) {
-        console.log("new code", code);
-    }
+  onChange(code) {
+    console.log("new code", code);
+  }
 
   // check from here https://www.hackerearth.com/docs/wiki/developers/v3/
   public supportedLanguages = ["C","CPP","CPP11","CLOJURE","CSHARP","JAVA","JAVASCRIPT","HASKELL","PERL","PHP","PYTHON","RUBY"]; //Also change in html when changing this #notAutomatic
@@ -30,6 +30,8 @@ export class ChallengeComponent implements OnInit {
   public runButtonState: boolean = false;
   private challenge$: Observable<Challenge>;
   public challenge: Challenge;
+  public latestSubmission: Submission;
+  public latestSubmissionResults: SubmissionResult[];
 
   constructor(private route: ActivatedRoute,private router: Router, private db: FirestoreService, public auth: AuthService) { }
 
@@ -47,9 +49,16 @@ export class ChallengeComponent implements OnInit {
       {
         this.runButtonState = true;
         this.db.addSubmission(this.challenge.id,this.challengeForm.value.language,this.challengeForm.value.code).then(ref => {
-          console.log(`New submission with id ${ref}`);
+          console.log(`New submission with id ${ref.id}`);
           this.runButtonState = false;
-          this.router.navigate(["/submission",this.challenge.id,ref.id]);
+          return this.db.getSubmission(this.challenge.contestId,ref.id,this.auth.id).subscribe((submission) => {
+            this.latestSubmission = submission;
+            return this.db.getSubmissionResults(this.challenge.id,ref.id,this.auth.id).subscribe((submissionResults) => {
+              this.latestSubmissionResults = submissionResults;
+            })
+          });
+          
+          // this.router.navigate(["/submission",this.challenge.id,ref.id]);
         });
       }
       else {

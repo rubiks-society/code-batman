@@ -21,6 +21,7 @@ export interface Challenge {
     timestamp: string;
 }
 
+// challenges/{}/board/{uid}/submissions
 export interface Submission {
     id?: string;
     createdBy: string; //uid
@@ -30,6 +31,13 @@ export interface Submission {
     status: string; //completed, submitted, processing
     challengeId: string;
     result ?: boolean;
+}
+
+// challenges/{}/board/{uid}/submissions/{}/result
+export interface SubmissionResult {
+    caseId: number;
+    pass: boolean;
+    result: string;
 }
 
 export const random_id = function(len: number = 9) {

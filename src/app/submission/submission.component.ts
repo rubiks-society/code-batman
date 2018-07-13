@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { FirestoreService } from '../common-core/firestore.service';
-import { Submission } from '../common-core/data.model';
+import { Submission, SubmissionResult } from '../common-core/data.model';
 
 @Component({
   selector: 'app-submission',
@@ -11,7 +11,7 @@ import { Submission } from '../common-core/data.model';
 })
 export class SubmissionComponent implements OnInit {
   public submission: Submission;
-  public caseRuns: Submission[];
+  public caseRuns: SubmissionResult[];
   private challengeId: string;
   private submissionId: string;
 
