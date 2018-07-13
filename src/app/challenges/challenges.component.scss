@@ -1,9 +1,16 @@
-.example-card {
-    max-width: 400px;
-    width: 30%;
-}
-
-.title {
-    font-size: 18px;
-    margin-bottom: 2px;
-}
+    .example-card {
+        max-width: 400px;
+        width: 30%;
+    }
+    
+    .title {
+        font-size: 18px;
+        margin-bottom: 2px;
+        @import "../common-core/shared.scss";
+        h3 {
+            font-family: $main-links-font;
+        }
+        h3:focus {
+            outline: none;
+        }
+    }

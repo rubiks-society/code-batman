@@ -1,24 +1,35 @@
 <div *ngIf="challenge">
-    Challenge {{challenge.title}} Statement:
-    <div [innerHTML]='challenge.statement'></div>
 
+    <h2 class="mb-3">{{challenge.title}}</h2>
+    <hr><br>
+    <div [innerHTML]='challenge.statement'></div>
+    <div class="row my-4">
+        <div class="card col pb-2 mx-1">
+            <div class="card-header">Test Case Input</div>
+            <div class="card-body" [innerHTML]='challenge.testCase'></div>
+        </div>
+        <div class="card col pb-2 mx-1">
+            <div class="card-header">Test Case Output</div>
+            <div class="card-body" [innerHTML]='challenge.testSolution'></div>
+        </div>
+    </div>
     <p *ngIf="!auth.authenticated">Login to submit solution</p>
     <form *ngIf="auth.authenticated" [formGroup]="challengeForm">
         <div class="form-group">
             <select class="custom-select form-control col-2 offset-10 form-control-sm" id="choosenLanguage" formControlName="language">
         <option value="none" selected>Language</option>
-        <option value="C" selected>C</option>
-        <option value="CPP" selected>C++</option>
-        <option value="CPP11" selected>C++ 11</option>
-        <option value="CLOJURE" selected>Clojure</option>
-        <option value="CSHARP" selected>C#</option>
-        <option value="JAVA" selected>Java</option>
-        <option value="JAVASCRIPT" selected>Javascript</option>
-        <option value="HASKELL" selected>Haskell</option>
-        <option value="PERL" selected>Perl</option>
-        <option value="PHP" selected>PHP</option>
-        <option value="PYTHON" selected>Python</option>
-        <option value="RUBY" selected>Ruby</option>
+        <option value="C" >C</option>
+        <option value="CPP" >C++</option>
+        <option value="CPP11" >C++ 11</option>
+        <option value="CLOJURE" >Clojure</option>
+        <option value="CSHARP" >C#</option>
+        <option value="JAVA" >Java</option>
+        <option value="JAVASCRIPT" >Javascript</option>
+        <option value="HASKELL" >Haskell</option>
+        <option value="PERL" >Perl</option>
+        <option value="PHP" >PHP</option>
+        <option value="PYTHON" >Python</option>
+        <option value="RUBY" >Ruby</option>
       </select>
         </div>
         <div class="form-group">

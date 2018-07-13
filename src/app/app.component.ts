@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from './common-core/auth.service';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faHome, faBlender, faInfo, faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faLinux, faSith, faStickerMule } from '@fortawesome/free-brands-svg-icons';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,6 +9,12 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent {
   title = 'app';
-  faCoffee = faCoffee;
+  faHome = faHome;
+  faChallanges = faBlender;
+  faInfo = faInfo;
+  faLogin = faSignInAlt;
+  faPractice = faStickerMule;
+  faCompetition = faSith;
+  faLogout = faSignOutAlt;
   constructor(public auth: AuthService) {}
 }

@@ -1,18 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
-$primary-custom: #212121;
-$primary-light: #484848;
-$primary-dark: #000000;
-$secondary-custom: #d500f9;
-$secondary-light: #ff5bff;
-$secondary-dark: #9e00c5;
-$primary-text: #ffffff;
-$secondary-text: #000000;
-$body-bg: #fff;
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 $headline-font: 'Press Start 2P',
 cursive;
+@import "app/common-core/shared";
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P|Gaegu');
 // Required 
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
@@ -52,11 +46,21 @@ cursive;
 @import "../node_modules/bootstrap/scss/print";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 // Custom
-a.nav-link {
-    color: $secondary-custom;
-}
-
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: $secondary-dark;
     font-family: $headline-font;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+body,
+html {
+    color: $primary-text;
 }

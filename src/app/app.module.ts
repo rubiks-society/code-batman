@@ -16,6 +16,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
+import { PracticeComponent } from './practice/practice.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,7 @@ import {MatCardModule} from '@angular/material/card';
     ChallengeComponent,
     SubmissionComponent,
     SmarteditorComponent,
-    
+    PracticeComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import {MatCardModule} from '@angular/material/card';
     NoopAnimationsModule,
     BrowserAnimationsModule,
     MatCardModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

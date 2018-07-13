@@ -24,14 +24,13 @@
                         "tsConfig": "src/tsconfig.app.json",
                         "assets": [
                             "src/favicon.ico",
-                            "src/assets"
+                            "src/assets",
+                            "src/manifest.json"
                         ],
                         "styles": [
                             "src/styles.scss"
                         ],
-                        "scripts": [
-
-                        ]
+                        "scripts": []
                     },
                     "configurations": {
                         "production": {
@@ -47,7 +46,8 @@
                             "aot": true,
                             "extractLicenses": true,
                             "vendorChunk": false,
-                            "buildOptimizer": true
+                            "buildOptimizer": true,
+                            "serviceWorker": true
                         }
                     }
                 },
@@ -80,11 +80,12 @@
                         ],
                         "scripts": [
                             "../node_modules/ace-builds/src-min/theme-textmate.js",
-                            "../node_modules/ace-builds/src-min/ace.js",
+                            "../node_modules/ace-builds/src-min/ace.js"
                         ],
                         "assets": [
                             "src/favicon.ico",
-                            "src/assets"
+                            "src/assets",
+                            "src/manifest.json"
                         ]
                     }
                 },
