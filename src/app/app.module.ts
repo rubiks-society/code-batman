@@ -19,6 +19,8 @@ import {MatCardModule} from '@angular/material/card';
 import { PracticeComponent } from './practice/practice.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { CompetitionsComponent } from './competitions/competitions.component';
+import { CompetitionComponent } from './competition/competition.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { environment } from '../environments/environment';
     SubmissionComponent,
     SmarteditorComponent,
     PracticeComponent,
+    CompetitionsComponent,
+    CompetitionComponent,
   ],
   imports: [
     BrowserModule,

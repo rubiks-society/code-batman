@@ -1,0 +1,7 @@
+<div *ngIf="competition" class="text-center challenge">
+  <h2>{{competition.title}}</h2>
+  <a [routerLink]="['/challenges',competition.id]">Challenges</a>  <a [routerLink]="['leaderboard',competition.id]">Leaderboard</a>
+  <p *ngIf="competition.full" [innerHTML]="competition.full"></p>
+  <p>Time Left:  {{competition.timeRemainingString()}}</p>
+
+</div>

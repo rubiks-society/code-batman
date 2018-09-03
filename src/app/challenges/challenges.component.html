@@ -1,20 +1,5 @@
-<div *ngFor="let challenge of challenges | async" class="challenge">
-    <mat-card class="example-card">
-        <a [routerLink]="['/challenge', challenge.id]">
-            <mat-card-header>
-                <mat-card-title class="title">{{challenge.title}}</mat-card-title>
-                <mat-card-subtitle>Created by-{{challenge.createdBy}}</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src={{challenge.imageThumbnail}} alt="challenge pic">
-            <mat-card-content>
-                <p>
-                    {{challenge.shortDescription}}
-                </p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-button>STAR</button>
-                <button mat-button>SHARE</button>
-            </mat-card-actions>
-        </a>
-    </mat-card>
-</div>
+<div *ngFor="let challenge of challenges | async" class="text-center challenge">
+    <h3 [routerLink]="['/challenge', challenge.id]" class="text-monospace cursor-pointer mb-1">{{challenge.title}}</h3>
+    <small  class="text-muted">By <span>{{challenge.createdBy}}</span></small>
+    <hr>
+  </div>

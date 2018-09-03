@@ -1,3 +1,46 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.right {
+    margin-left: auto;
+}
+
+h5 {
+    margin-bottom: 0px;
+    color: #9e00c5;
+    font-family: "Press Start 2P", cursive;
+}
+
+.paddingright {
+    padding-right: 0px;
+    padding-top: 3px;
+}
+
+.padding {
+    padding-left: 5%;
+    padding-right: 5%;
+}
 .aceEditorDirective {
     margin-top: 50px;
     min-height: 200px;

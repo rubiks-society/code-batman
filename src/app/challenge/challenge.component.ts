@@ -51,7 +51,9 @@ export class ChallengeComponent implements OnInit {
         this.db.addSubmission(this.challenge.id,this.challengeForm.value.language,this.challengeForm.value.code).then(ref => {
           console.log(`New submission with id ${ref.id}`);
           this.runButtonState = false;
-          return this.db.getSubmission(this.challenge.contestId,ref.id,this.auth.id).subscribe((submission) => {
+          return this.db.getSubmission(this.challenge.id,ref.id,this.auth.id).subscribe((submission) => {
+            console.log(this.challenge.id,ref.id,this.auth.id);
+            console.log("<challenge.component.ts12>",submission);
             this.latestSubmission = submission;
             return this.db.getSubmissionResults(this.challenge.id,ref.id,this.auth.id).subscribe((submissionResults) => {
               this.latestSubmissionResults = submissionResults;
