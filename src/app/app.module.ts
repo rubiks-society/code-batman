@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CommonCoreModule } from './common-core/common-core.module';
 import { HomeComponent } from './home/home.component';
-import { AppRoutingModule } from './common-core/app.routing';
+import { AppRoutingModule } from './app.routing';
 import { ChallengesComponent } from './challenges/challenges.component';
 import { ChallengeComponent } from './challenge/challenge.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -19,6 +19,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { CompetitionsComponent } from './competitions/competitions.component';
 import { CompetitionComponent } from './competition/competition.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { CompetitionComponent } from './competition/competition.component';
     PracticeComponent,
     CompetitionsComponent,
     CompetitionComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
