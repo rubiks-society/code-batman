@@ -9,9 +9,7 @@ import { ChallengesComponent } from './challenges/challenges.component';
 import { ChallengeComponent } from './challenge/challenge.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SubmissionComponent } from './submission/submission.component';
-import { AceEditorModule } from 'ng2-ace-editor';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { SmarteditorComponent } from './smarteditor/smarteditor.component';
 import {MatSelectModule} from '@angular/material/select';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -29,7 +27,6 @@ import { CompetitionComponent } from './competition/competition.component';
     ChallengesComponent,
     ChallengeComponent,
     SubmissionComponent,
-    SmarteditorComponent,
     PracticeComponent,
     CompetitionsComponent,
     CompetitionComponent,
@@ -40,7 +37,6 @@ import { CompetitionComponent } from './competition/competition.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    AceEditorModule,
     FormsModule,
     MatSelectModule,
     NoopAnimationsModule,

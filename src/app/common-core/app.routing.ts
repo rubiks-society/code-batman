@@ -1,10 +1,9 @@
-import { NgModule}  from '@angular/core';
+import { NgModule} from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
 import { ChallengeComponent } from '../challenge/challenge.component';
 import { environment } from '../../environments/environment';
 import { SubmissionComponent } from '../submission/submission.component';
-import { SmarteditorComponent } from '../smarteditor/smarteditor.component';
 import { PracticeComponent } from '../practice/practice.component';
 import { CompetitionsComponent } from '../competitions/competitions.component';
 import { CompetitionComponent } from '../competition/competition.component';
@@ -39,10 +38,6 @@ const routes: Routes = [
   {
     path: 'challenge/:id',
     component: ChallengeComponent
-  },
-  {
-    path: 'about',
-    component: SmarteditorComponent
   },
   {
     path: 'competitions',
