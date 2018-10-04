@@ -1,13 +1,14 @@
 import { NgModule} from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from '../home/home.component';
-import { ChallengeComponent } from '../challenge/challenge.component';
-import { environment } from '../../environments/environment';
-import { SubmissionComponent } from '../submission/submission.component';
-import { PracticeComponent } from '../practice/practice.component';
-import { CompetitionsComponent } from '../competitions/competitions.component';
-import { CompetitionComponent } from '../competition/competition.component';
-import { ChallengesComponent } from '../challenges/challenges.component';
+import { HomeComponent } from './home/home.component';
+import { ChallengeComponent } from './challenge/challenge.component';
+import { environment } from '../environments/environment';
+import { SubmissionComponent } from './submission/submission.component';
+import { PracticeComponent } from './practice/practice.component';
+import { CompetitionsComponent } from './competitions/competitions.component';
+import { CompetitionComponent } from './competition/competition.component';
+import { ChallengesComponent } from './challenges/challenges.component';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -16,6 +17,15 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
     pathMatch: 'full'
+  },
+  {
+    path: 'menu',
+    component: HomeComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
   },
   {
     path: 'challenges/:id',

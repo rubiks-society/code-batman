@@ -68,7 +68,8 @@ export class FirestoreService {
       language: language,
       status: "submitted",
       challengeId: challengeId
-    }
+    };
+
     return this.afs.collection<Submission>(`${this.challengesPath}/${challengeId}/board/${this.auth.id}/submissions`).add(submission);
   }
 }
